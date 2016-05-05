@@ -1,10 +1,10 @@
 {
-  "name": "react-mdi-stepper",
+  "name": "react-mdl-stepper",
   "version": "0.0.0",
-  "description": "React Mdi Stepper Component",
+  "description": "React MDL Stepper Component",
   "repository": {
     "type": "git",
-    "url": "https://github.com/you/repo.git"
+    "url": "https://github.com/adamdawkins/react-mdl-stepper.git"
   },
   "license": "MIT",
   "scripts": {
