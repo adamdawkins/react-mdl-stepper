@@ -17,7 +17,7 @@ class StepContent extends React.Component {
     const { children, isLastChild } = this.props;
     return (
       <div className="mdl-step__content" ref="container">
-      {!isLastChild ? (<StepBorder />) : null}
+      {!isLastChild ? (<StepBorder contentHeight={this.getDimensions().height} />) : null}
         {children}
       </div>
     );
