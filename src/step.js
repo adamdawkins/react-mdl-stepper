@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, cloneElement } from 'react';
 import StepLabel from './step_label';
 import StepTitle from './step_title';
 import classNames from 'classnames';
@@ -17,6 +17,19 @@ class Step extends React.Component {
     this.completeStep = this.completeStep.bind(this);
     this.skipStep = this.skipStep.bind(this);
   }
+  getChildren() {
+    const { children } = this.props;
+
+    return React.Children.map(children, (child) => {
+      let ref;
+      if (child.type === StepContent) {
+        ref = 'stepContent';
+      } else if (child.type === StepActions) {
+        ref = 'stepActions';
+      }
+      return cloneElement(child, { ref });
+    });
+  }
 
   getMessage() {
     const { summary, completedSummary, skippedSummary } = this.props;
@@ -30,6 +43,17 @@ class Step extends React.Component {
     return message;
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { isActive } = this.props;
+  //
+  //   if (isActive) {
+  //     const { stepContent, stepLabel } = this.refs;
+  //     stepLabel.setContentHeight(
+  //       stepContent.getDimensions().height
+  //     );
+  //   }
+  //
+  // }
   classNames() {
     return classNames(
       'mdl-step',
@@ -70,10 +94,11 @@ class Step extends React.Component {
     }
   }
   render() {
-    const { children, title, count } = this.props;
+    const { title, count } = this.props;
     return (
       <li className={this.classNames()} onClick={this.handleClick.bind(this)}>
         <StepLabel
+          ref="stepLabel"
           stepNumber={count}
           completed={this.state.completed}
           editable={this.props.editable}
@@ -81,7 +106,7 @@ class Step extends React.Component {
         >
           <StepTitle text={title} message={this.getMessage()} />
         </StepLabel>
-        {children}
+        { this.getChildren() }
       </li>
     );
   }
