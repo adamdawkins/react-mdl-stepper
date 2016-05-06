@@ -1,15 +1,15 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf } from '@kadira/storybook';
 import '../../node_modules/react-mdl/extra/material.css';
 import '../../node_modules/react-mdl/extra/material.js';
 import '../../stepper.css';
-import { Stepper, Step, StepLabel, StepTitle, StepActions, StepContent } from '../index';
+import { Stepper, Step, StepActions, StepContent } from '../index';
 import { Button } from 'react-mdl';
 
 storiesOf('Stepper', module)
   .add('Linear Stepper', () => (
     <Stepper>
-      <Step title="Store">
+      <Step title="Delivery Address">
         <StepContent>
           <p>This is the content of the step.</p>
         </StepContent>
@@ -18,40 +18,26 @@ storiesOf('Stepper', module)
           <Button>Cancel</Button>
         </StepActions>
       </Step>
-      <Step title="Employee">
-        <StepContent>
-          <p>This is step2</p>
-        </StepContent>
+      <Step title="Billing Address">
+        <StepContent />
         <StepActions>
           <Button colored raised data-stepper-next>Continue</Button>
           <Button>Cancel</Button>
         </StepActions>
       </Step>
-      <Step title="Add style numbers">
-        <StepContent>
-          <p>Add the style numbers in this step.</p>
-        </StepContent>
+      <Step title="Payment Details">
+        <StepContent />
         <StepActions>
           <Button colored raised data-stepper-next>Continue</Button>
           <Button>Cancel</Button>
         </StepActions>
       </Step>
-      <Step title="Edit Uniform allowance" summary="Optional" optional>
+      <Step title="Confirmation">
         <StepContent>
-          <p>Edit uniform allowance</p>
-        </StepContent>
-      <StepActions>
-        <Button colored raised data-stepper-next>Continue</Button>
-        <Button data-stepper-cancel>Cancel</Button>
-        <Button data-stepper-skip>Skip</Button>
-      </StepActions>
-      </Step>
-      <Step title="Confirm">
-        <StepContent>
-          <p>Edit uniform allowance</p>
+          <p>Place your order</p>
         </StepContent>
         <StepActions>
-          <Button colored raised data-stepper-next>Submit Purchase</Button>
+          <Button colored raised data-stepper-next>Order</Button>
         </StepActions>
        </Step>
     </Stepper>
