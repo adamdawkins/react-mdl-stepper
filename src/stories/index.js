@@ -5,8 +5,98 @@ import '../../node_modules/react-mdl/extra/material.js';
 import '../../stepper.css';
 import '../../demo.css';
 import { Stepper, Step, StepActions, StepContent } from '../index';
-import { Button } from 'react-mdl';
+import { List, ListItem, ListItemContent, ListItemAction, Grid, Cell, Textfield, Button, Card, CardTitle, CardText, CardActions, Icon} from 'react-mdl';
 
+storiesOf('Stepper', module)
+  .add('Uniform Ad Purchase', () => (
+
+        <Stepper>
+          <Step editable
+            title="Employee"
+            summary="Select the Employee"
+            completedSummary="Emily Johnston, 4312"
+          >
+          <StepContent>
+            <Card>
+              <Grid>
+                <Cell col={2}>
+                  <Textfield label="Employee Number" />
+                </Cell>
+                <Cell col={6}>
+                  <Button colored raised>Search</Button>
+                </Cell>
+              </Grid>
+            </Card>
+          </StepContent>
+          <StepActions>
+            <Button>Cancel</Button>
+            <Button colored raised data-stepper-next>Continue</Button>
+          </StepActions>
+        </Step>
+          <Step editable
+            title="Styles"
+            summary="Add the styles purchased for uniform"
+            completedSummary="2 styles, £178"
+          >
+          <StepContent>
+            <Grid>
+              <List>
+        <ListItem twoLine>
+          <ListItemContent subtitle="Style Number: 23008692">Elle Print Trapeze Maxi Dress</ListItemContent>
+          <ListItemAction>
+            <a href="#"><Icon name="delete"/></a>
+          </ListItemAction>
+        </ListItem>
+        <ListItem twoLine>
+          <ListItemContent subtitle="Style Number: 001008568">Ivory Tape Yarn Sleeveless Tee</ListItemContent>
+          <ListItemAction>
+            <a href="#"><Icon name="delete"/></a>
+          </ListItemAction>
+        </ListItem>
+              </List>
+            </Grid>
+              <form>
+            <Grid>
+              <Cell col={6}>
+                <Textfield label="Style number" />
+              </Cell>
+              <Cell col={6}>
+                <Button colored raised>Add</Button>
+              </Cell>
+            </Grid>
+              </form>
+          </StepContent>
+          <StepActions>
+            <Button>Cancel</Button>
+            <Button colored raised data-stepper-next>Continue</Button>
+          </StepActions>
+        </Step>
+        <Step optional editable
+          title="Apply partial discount"
+          summary="Optional"
+          skippedSummary="Skipped"
+          completedSummary="Uniform allowance used: £85.31"
+          >
+          <StepContent>
+            <p>A small peice of content</p>
+            <div> More content?</div>
+            </StepContent>
+          <StepActions>
+            <Button>Cancel</Button>
+            <Button colored raised data-stepper-next>Continue</Button>
+            <Button data-stepper-skip>Skip</Button>
+          </StepActions>
+        </Step>
+        <Step title="Confirm" summary="Check everything's correct, and submit the uniform purchase">
+        <StepContent>
+          <div style={{height: '250px', background: '#ccc'}}></div>
+        </StepContent>
+          <StepActions>
+            <Button colored raised data-stepper-next>Submit</Button>
+          </StepActions>
+        </Step>
+        </Stepper>
+));
 storiesOf('Stepper', module)
   .add('Linear Stepper', () => (
     <Stepper>
@@ -176,3 +266,4 @@ storiesOf('Stepper', module)
   // .add('Error State', () => (
   //   <Stepper />
   // ));
+  //

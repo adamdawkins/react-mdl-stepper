@@ -131,16 +131,6 @@
     font-size: 15px;
 }
 
-.mdl-step:not(:last-child) .mdl-step__label-indicator:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 1px;
-    min-height: 40px;
-    background-color: rgba(0, 0, 0, 0.1);
-    margin: 32px 4px 0 37px;
-}
-
 .mdl-step__label {
     cursor: pointer;
     margin-bottom: 8px;
@@ -184,9 +174,7 @@
 
 .mdl-step__content {
     display: none;
-    height: 350px;
     width: inherit;
-    overflow: auto;
     margin-left: 64px;
     margin-right: 24px;
 }
@@ -209,10 +197,6 @@
     background-color: #2196F3;
 }
 
-.mdl-step.mdl-step.is-active:not(:last-child) .mdl-step__label-indicator:after {
-    height: 462px;
-    margin: 32px 0 0 37px;
-}
 
 .mdl-step.is-active .mdl-step__label .mdl-step__title {
     font-weight: 600;
