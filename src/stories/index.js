@@ -96,6 +96,65 @@ storiesOf('Stepper', module)
         </StepActions>
       </Step>
     </Stepper>
+  ))
+  .add('Completed Step Summary',  () => (
+    <Stepper>
+      <Step title="The step with only a completed summary" completedSummary="This step is completed">
+        <StepContent>
+          <p> You might want to summarize user input from here, e.g. in a checkout process.</p>
+        </StepContent>
+        <StepActions>
+          <Button colored raised data-stepper-next>Continue</Button>
+          <Button>Cancel</Button>
+        </StepActions>
+      </Step>
+      <Step title="This step summary changes on completion" summary="Please do something here" completedSummary="This step is completed">
+        <StepContent>
+          <p> You might want to summarize user input from here, e.g. in a checkout process.</p>
+        </StepContent>
+          <StepActions>
+            <Button colored raised data-stepper-next>Continue</Button>
+            <Button>Cancel</Button>
+          </StepActions>
+      </Step>
+    </Stepper>
+  ))
+  .add('Skipped Step Summary', () => (
+    <Stepper>
+      <Step title="Step 1">
+        <StepContent>
+          <p>This is the content of the step.</p>
+        </StepContent>
+        <StepActions>
+          <Button colored raised data-stepper-next>Continue</Button>
+          <Button>Cancel</Button>
+        </StepActions>
+      </Step>
+      <Step optional
+        title="An optional step 2"
+        summary="optional"
+        completedSummary="Completed"
+        skippedSummary="Skipped"
+      >
+        <StepContent>
+          <p>This is step2</p>
+        </StepContent>
+        <StepActions>
+          <Button colored raised data-stepper-next>Continue</Button>
+          <Button>Cancel</Button>
+          <Button data-stepper-skip>Skip</Button>
+        </StepActions>
+      </Step>
+      <Step title="Step 3">
+        <StepContent>
+          <p>This is the content of the step.</p>
+        </StepContent>
+        <StepActions>
+          <Button colored raised data-stepper-next>Continue</Button>
+          <Button>Cancel</Button>
+        </StepActions>
+      </Step>
+    </Stepper>
   ));
   // .add('Error State', () => (
   //   <Stepper />

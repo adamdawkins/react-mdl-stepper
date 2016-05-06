@@ -11,11 +11,25 @@ class Step extends React.Component {
 
     this.state = {
       completed: false,
+      skipped: false,
     };
 
     this.completeStep = this.completeStep.bind(this);
     this.skipStep = this.skipStep.bind(this);
   }
+
+  getMessage() {
+    const { summary, completedSummary, skippedSummary } = this.props;
+    let message = summary;
+    if (completedSummary && this.state.completed) {
+      message = completedSummary;
+    } else if (skippedSummary && this.state.skipped) {
+      message = skippedSummary;
+    }
+
+    return message;
+  }
+
   classNames() {
     return classNames(
       'mdl-step',
@@ -26,13 +40,17 @@ class Step extends React.Component {
       }
     );
   }
+
   completeStep() {
     this.setState({ completed: true });
     this.props.onNext();
   }
+
   skipStep() {
+    this.setState({ skipped: true });
     this.props.onNext();
   }
+
   handleClick(event) {
     if (event.target.dataset.stepperNext) {
       event.preventDefault();
@@ -42,11 +60,11 @@ class Step extends React.Component {
     }
   }
   render() {
-    const { children, title, summary, count } = this.props;
+    const { children, title, count } = this.props;
     return (
       <li className={this.classNames()} onClick={this.handleClick.bind(this)}>
         <StepLabel stepNumber={count} completed={this.state.completed} active={this.props.isActive}>
-          <StepTitle text={title} message={summary} />
+          <StepTitle text={title} message={this.getMessage()} />
         </StepLabel>
         {children}
       </li>
@@ -58,6 +76,8 @@ Step.propTypes = {
   optional: PropTypes.bool,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string,
+  completedSummary: PropTypes.string,
+  skippedSummary: PropTypes.string,
   count: PropTypes.number,
   isActive: PropTypes.bool,
   onNext: PropTypes.func.isRequired,
