@@ -53,10 +53,19 @@ class Step extends React.Component {
   }
 
   handleClick(event) {
-    if (event.target.dataset.stepperNext) {
+    const { isActive, editable, count, setStep } = this.props;
+    if (!isActive && editable) {
       event.preventDefault();
+
+      /* return to this editable step */
+      setStep(count);
+    } else if (event.target.dataset.stepperNext) {
+      event.preventDefault();
+
       this.completeStep();
     } else if (event.target.dataset.stepperSkip) {
+      event.preventDefault();
+
       this.skipStep();
     }
   }
@@ -64,7 +73,12 @@ class Step extends React.Component {
     const { children, title, count } = this.props;
     return (
       <li className={this.classNames()} onClick={this.handleClick.bind(this)}>
-        <StepLabel stepNumber={count} completed={this.state.completed} editable={this.props.editable} active={this.props.isActive}>
+        <StepLabel
+          stepNumber={count}
+          completed={this.state.completed}
+          editable={this.props.editable}
+          active={this.props.isActive}
+        >
           <StepTitle text={title} message={this.getMessage()} />
         </StepLabel>
         {children}
@@ -82,6 +96,7 @@ Step.propTypes = {
   skippedSummary: PropTypes.string,
   count: PropTypes.number,
   isActive: PropTypes.bool,
+  setStep: PropTypes.func,
   onNext: PropTypes.func.isRequired,
   children(props, propName) {
     const children = props[propName];

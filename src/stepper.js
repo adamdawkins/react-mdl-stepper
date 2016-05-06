@@ -4,9 +4,10 @@ class Stepper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeStep: 0,
+      activeStep: 1,
     };
     this.nextStep = this.nextStep.bind(this);
+    this.setStep = this.setStep.bind(this);
   }
   getStepsCount() {
     return this.props.children && this.props.children[0] ?
@@ -14,7 +15,6 @@ class Stepper extends React.Component {
   }
 
   getChildren() {
-    let index = 0;
     let count = 0;
     const { children } = this.props;
     const state = this.state;
@@ -23,9 +23,9 @@ class Stepper extends React.Component {
 
       const id = `step-${count}`; // TODO: make unique?
       const ref = id;
-      const isActive = state.activeStep === index;
+      const isActive = state.activeStep === count;
       const onNext = this.nextStep;
-      index++;
+      const setStep = this.setStep;
 
       return cloneElement(step, {
         count,
@@ -33,8 +33,12 @@ class Stepper extends React.Component {
         id,
         isActive,
         onNext,
+        setStep,
       });
     });
+  }
+  setStep(stepNumber) {
+    this.setState({ activeStep: stepNumber });
   }
   nextStep() {
     const { activeStep } = this.state;
