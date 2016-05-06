@@ -3,6 +3,7 @@ import { storiesOf } from '@kadira/storybook';
 import '../../node_modules/react-mdl/extra/material.css';
 import '../../node_modules/react-mdl/extra/material.js';
 import '../../stepper.css';
+import '../../demo.css';
 import { Stepper, Step, StepActions, StepContent } from '../index';
 import { Button } from 'react-mdl';
 

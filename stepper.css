@@ -281,10 +281,3 @@
     z-index: 4;
     margin: auto;
 }
-
-
-
-/* FOR DEMO ONLY */
-.mdl-stepper > .mdl-step > .mdl-step__content {
-    background-color: rgba(0,0,0,0.2);
-  }
