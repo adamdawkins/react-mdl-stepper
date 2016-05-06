@@ -28,6 +28,7 @@ class Stepper extends React.Component {
       index++;
 
       return cloneElement(step, {
+        count,
         ref,
         id,
         isActive,
@@ -36,16 +37,13 @@ class Stepper extends React.Component {
     });
   }
   nextStep() {
-    console.log('nextStep called');
     const { activeStep } = this.state;
-    console.log('current activeStep', activeStep);
     this.setState({ activeStep: activeStep + 1 });
   }
   render() {
     return (
       <ul className="mdl-stepper mdl-stepper--linear">
-      <span>Count: {this.getStepsCount()}</span>
-      {this.getChildren()}
+        {this.getChildren()}
       </ul>
     );
   }
