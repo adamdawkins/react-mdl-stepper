@@ -34,6 +34,7 @@ class Step extends React.Component {
     return classNames(
       'mdl-step',
       {
+        'mdl-step--editable': this.props.editable,
         'mdl-step--optional': this.props.optional,
         'mdl-step--completed': this.state.completed,
         'is-active': this.props.isActive,
@@ -63,7 +64,7 @@ class Step extends React.Component {
     const { children, title, count } = this.props;
     return (
       <li className={this.classNames()} onClick={this.handleClick.bind(this)}>
-        <StepLabel stepNumber={count} completed={this.state.completed} active={this.props.isActive}>
+        <StepLabel stepNumber={count} completed={this.state.completed} editable={this.props.editable} active={this.props.isActive}>
           <StepTitle text={title} message={this.getMessage()} />
         </StepLabel>
         {children}
@@ -73,6 +74,7 @@ class Step extends React.Component {
 }
 
 Step.propTypes = {
+  editable: PropTypes.bool,
   optional: PropTypes.bool,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string,

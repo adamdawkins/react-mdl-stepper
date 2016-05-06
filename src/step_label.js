@@ -2,11 +2,13 @@ import React, { PropTypes } from 'react';
 
 class StepLabel extends React.Component {
   getLabelIndicator() {
-    const { completed, stepNumber } = this.props;
+    const { completed, editable, stepNumber } = this.props;
     let indicator = (<span className="mdl-step__label-indicator-content">{stepNumber}</span>);
 
     if (completed) {
-      indicator = (<i className="material-icons mdl-step__label-indicator-content">check</i>);
+      const icon = editable ? 'edit' : 'check';
+
+      indicator = (<i className="material-icons mdl-step__label-indicator-content">{icon}</i>);
     }
 
     return (
@@ -28,6 +30,7 @@ class StepLabel extends React.Component {
 }
 
 StepLabel.propTypes = {
+  editable: PropTypes.bool,
   completed: PropTypes.bool,
   stepNumber: PropTypes.number.isRequired,
   children: PropTypes.object,

@@ -48,9 +48,41 @@ storiesOf('Stepper', module)
   // .add('Stepper Feedback', () => (
   //   <Stepper />
   // ))
-  // .add('Editable Steps', () => (
-  //   <Stepper />
-  // ))
+  .add('Editable Steps', () => (
+    <Stepper>
+      <Step editable
+        title="Title of Step 1"
+        summary="You can edit this step later"
+      >
+        <StepContent />
+        <StepActions>
+         <Button colored raised data-stepper-next>Continue</Button>
+         <Button>Cancel</Button>
+        </StepActions>
+     </Step>
+     <Step title="Title of Step 2" >
+       <StepContent />
+       <StepActions>
+         <Button colored raised data-stepper-next>Continue</Button>
+         <Button>Cancel</Button>
+       </StepActions>
+     </Step>
+     <Step title="Title of Step 3" >
+       <StepContent />
+       <StepActions>
+         <Button colored raised data-stepper-next>Continue</Button>
+         <Button>Cancel</Button>
+       </StepActions>
+     </Step>
+     <Step title="Title of Step 4" >
+       <StepContent />
+       <StepActions>
+         <Button colored raised data-stepper-next>Continue</Button>
+         <Button>Cancel</Button>
+       </StepActions>
+     </Step>
+   </Stepper>
+  ))
   .add('Optional Steps', () => (
     <Stepper>
       <Step title="Step 1">
