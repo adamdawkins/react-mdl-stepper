@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 class StepLabel extends React.Component {
   getLabelIndicator() {
@@ -26,5 +26,12 @@ class StepLabel extends React.Component {
     );
   }
 }
+
+StepLabel.propTypes = {
+  completed: PropTypes.bool,
+  stepNumber: PropTypes.number.isRequired,
+  children: PropTypes.object,
+};
+
 
 export default StepLabel;
