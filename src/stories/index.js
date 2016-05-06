@@ -9,7 +9,7 @@ import { Button } from 'react-mdl';
 storiesOf('Stepper', module)
   .add('Linear Stepper', () => (
     <Stepper>
-      <Step title="Delivery Address">
+      <Step title="Title of Step 1" summary="Summary of Step 1">
         <StepContent>
           <p>This is the content of the step.</p>
         </StepContent>
@@ -18,26 +18,24 @@ storiesOf('Stepper', module)
           <Button>Cancel</Button>
         </StepActions>
       </Step>
-      <Step title="Billing Address">
+      <Step title="Title of Step 2">
         <StepContent />
         <StepActions>
           <Button colored raised data-stepper-next>Continue</Button>
           <Button>Cancel</Button>
         </StepActions>
       </Step>
-      <Step title="Payment Details">
+      <Step title="Title of Step 3">
         <StepContent />
         <StepActions>
           <Button colored raised data-stepper-next>Continue</Button>
           <Button>Cancel</Button>
         </StepActions>
       </Step>
-      <Step title="Confirmation">
-        <StepContent>
-          <p>Place your order</p>
-        </StepContent>
+      <Step title="Title of Step 4">
+        <StepContent />
         <StepActions>
-          <Button colored raised data-stepper-next>Order</Button>
+          <Button colored raised data-stepper-next>Action</Button>
         </StepActions>
        </Step>
     </Stepper>
