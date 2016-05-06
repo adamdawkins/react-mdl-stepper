@@ -7,31 +7,57 @@ import { Stepper, Step, StepLabel, StepTitle, StepActions, StepContent } from '.
 import { Button } from 'react-mdl';
 
 storiesOf('Stepper', module)
-  .add('Stepper with non-Step child', () => ( 
-     <Stepper>
-      <div>Hello</div>
-     </Stepper>
-  ))
-  .add('Linear Stepper', () => (
-    <Stepper>
-      <Step title="This is Step 1" summary="This is the summary of Step 1">
+.add('Stepper with non-Step child', () => ( 
+                                           <Stepper>
+                                           <div>Hello</div>
+                                           </Stepper>
+                                          ))
+                                          .add('Linear Stepper', () => (
+                                            <Stepper>
+                                            <Step title="Store">
+                                            <StepContent>
+                                            <p>This is the content of the step.</p>
+                                            </StepContent>
+                                            <StepActions>
+                                            <Button colored raised data-stepper-next>Continue</Button>
+                                            <Button>Cancel</Button>
+                                            </StepActions>
+                                            </Step>
+                                            <Step title="Employee">
+                                            <StepContent>
+                                            <p>This is step2</p>
+                                            </StepContent>
+                                            <StepActions>
+                                            <Button colored raised data-stepper-next>Continue</Button>
+                                            <Button>Cancel</Button>
+                                            </StepActions>
+                                            </Step>
+                                            <Step title="Add style numbers">
+                                            <StepContent>
+                                            <p>Add the style numbers in this step.</p>
+                                            </StepContent>
+                                            <StepActions>
+                                            <Button colored raised data-stepper-next>Continue</Button>
+                                            <Button>Cancel</Button>
+                                            </StepActions>
+                                            </Step>
+                                            <Step title="Edit Uniform allowance" optional>
+                                            <StepContent>
+                                            <p>Edit uniform allowance</p>
+                                            </StepContent>
+                                            <StepActions>
+                                            <Button colored raised data-stepper-next>Continue</Button>
+                                            <Button data-stepper-next>Skip</Button>
+                                            </StepActions>
+                                            </Step>
+                                            <Step title="Confirm">
         <StepContent>
-          <p>This is the content of the step.</p>
+          <p>Edit uniform allowance</p>
         </StepContent>
         <StepActions>
-          <Button colored raised data-stepper-next>Continue</Button>
-          <Button>Cancel</Button>
+          <Button colored raised data-stepper-next>Submit Purchase</Button>
         </StepActions>
-      </Step>
-      <Step title="This is Step 2" summary="This is the summary of Step 2">
-        <StepContent>
-          <p>This is step2</p>
-        </StepContent>
-        <StepActions>
-          <Button colored raised>Continue</Button>
-          <Button>Cancel</Button>
-        </StepActions>
-      </Step>
+       </Step>
     </Stepper>
   ));
   // .add('Non-Linear Stepper', () => (
