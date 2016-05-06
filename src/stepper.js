@@ -27,6 +27,12 @@ class Stepper extends React.Component {
       const onNext = this.nextStep;
       const setStep = this.setStep;
 
+      let isLastChild = false;
+
+      if (count === this.getStepsCount()) {
+        isLastChild = true;
+      }
+
       return cloneElement(step, {
         count,
         ref,
@@ -34,6 +40,7 @@ class Stepper extends React.Component {
         isActive,
         onNext,
         setStep,
+        isLastChild,
       });
     });
   }

@@ -77,7 +77,10 @@ storiesOf('Stepper', module)
           skippedSummary="Skipped"
           completedSummary="Uniform allowance used: £85.31"
           >
-          <StepContent />
+          <StepContent>
+            <p>A small peice of content</p>
+            <div> More content?</div>
+            </StepContent>
           <StepActions>
             <Button>Cancel</Button>
             <Button colored raised data-stepper-next>Continue</Button>
@@ -85,6 +88,9 @@ storiesOf('Stepper', module)
           </StepActions>
         </Step>
         <Step title="Confirm" summary="Check everything's correct, and submit the uniform purchase">
+        <StepContent>
+          <div style={{height: '250px', background: '#ccc'}}></div>
+        </StepContent>
           <StepActions>
             <Button colored raised data-stepper-next>Submit</Button>
           </StepActions>

@@ -18,12 +18,12 @@ class StepLabel extends React.Component {
     );
   }
   render() {
-    const { children, active } = this.props;
+    const { children, active, isLastChild } = this.props;
     return (
       <span className="mdl-step__label">
         {children}
         {this.getLabelIndicator()}
-        {!active ? (
+        {!active && !isLastChild ? (
           <div style={{
           position: 'absolute',
           left: 0,

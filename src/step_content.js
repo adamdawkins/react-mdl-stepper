@@ -14,10 +14,10 @@ class StepContent extends React.Component {
     return { width, height };
   }
   render() {
-    const { children } = this.props;
+    const { children, isLastChild } = this.props;
     return (
       <div className="mdl-step__content" ref="container">
-        <StepBorder />
+      {!isLastChild ? (<StepBorder />) : null}
         {children}
       </div>
     );

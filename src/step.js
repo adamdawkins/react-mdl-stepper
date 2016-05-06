@@ -18,7 +18,7 @@ class Step extends React.Component {
     this.skipStep = this.skipStep.bind(this);
   }
   getChildren() {
-    const { children } = this.props;
+    const { children, isLastChild } = this.props;
 
     return React.Children.map(children, (child) => {
       let ref;
@@ -27,7 +27,7 @@ class Step extends React.Component {
       } else if (child.type === StepActions) {
         ref = 'stepActions';
       }
-      return cloneElement(child, { ref });
+      return cloneElement(child, { ref, isLastChild });
     });
   }
 
@@ -100,9 +100,7 @@ class Step extends React.Component {
         <StepLabel
           ref="stepLabel"
           stepNumber={count}
-          completed={this.state.completed}
-          editable={this.props.editable}
-          active={this.props.isActive}
+          {...this.props}
         >
           <StepTitle text={title} message={this.getMessage()} />
         </StepLabel>
@@ -113,6 +111,7 @@ class Step extends React.Component {
 }
 
 Step.propTypes = {
+  isLastChild: PropTypes.bool,
   editable: PropTypes.bool,
   optional: PropTypes.bool,
   title: PropTypes.string.isRequired,
