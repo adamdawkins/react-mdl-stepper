@@ -12,22 +12,33 @@ class Step extends React.Component {
     this.state = {
       completed: false,
     };
+
+    this.completeStep = this.completeStep.bind(this);
+    this.skipStep = this.skipStep.bind(this);
   }
   classNames() {
     return classNames(
       'mdl-step',
       {
+        'mdl-step--optional': this.props.optional,
         'mdl-step--completed': this.state.completed,
         'is-active': this.props.isActive,
       }
     );
   }
+  completeStep() {
+    this.setState({ completed: true });
+    this.props.onNext();
+  }
+  skipStep() {
+    this.props.onNext();
+  }
   handleClick(event) {
-    const { onNext } = this.props;
     if (event.target.dataset.stepperNext) {
       event.preventDefault();
-      this.setState({ completed: true });
-      onNext();
+      this.completeStep();
+    } else if (event.target.dataset.stepperSkip) {
+      this.skipStep();
     }
   }
   render() {
@@ -44,6 +55,7 @@ class Step extends React.Component {
 }
 
 Step.propTypes = {
+  optional: PropTypes.bool,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string,
   count: PropTypes.number,
