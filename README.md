@@ -24,6 +24,6 @@ import { Stepper, Step, StepActions, StepContent } from '../index';
 ```
 
 ### Demo  & Documentation.
-Check out the [Storybook](https://adamdawkins.github.io/react-mdl-stepper/]. 
+Check out the [Storybook](https://adamdawkins.github.io/react-mdl-stepper/). 
 
 Look at [/src/stories/index.js](https://github.com/adamdawkins/react-mdl-stepper/blob/master/src/stories/index.js) for the code examples of the stories.
