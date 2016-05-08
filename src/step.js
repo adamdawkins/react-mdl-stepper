@@ -101,6 +101,7 @@ class Step extends React.Component {
           ref="stepLabel"
           stepNumber={count}
           {...this.props}
+          completed={this.state.completed}
         >
           <StepTitle text={title} message={this.getMessage()} />
         </StepLabel>
