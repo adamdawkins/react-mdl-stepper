@@ -165,11 +165,10 @@
 }
 
 .mdl-step__label .mdl-step__title .mdl-step__title-message {
-    position: absolute;
     font-size: 12px;
     opacity: .7;
     font-weight: 400;
-    margin-top: 16px;
+    margin-top: -6px;
 }
 
 .mdl-step__content {
